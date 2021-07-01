@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   products = ProductList.PRODUCTS;
 
-  displayedColumns: string[] = ['price', 'name', 'id'];
+  displayedColumns: string[] = ['id', 'name', 'price', ' '];
 
   constructor(private router:Router) { }
 
