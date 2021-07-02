@@ -1,1 +1,12 @@
-<p>cart works!</p>
+<div style="width: 100%">
+  <div class="cart-actions">
+    <button mat-button (click)="clearCart()" >
+      Clear
+    </button>
+    <button mat-button (click)=sum()>
+      Summary: {{summary}}
+    </button>
+  </div>
+  <product-table [products]=cartProducts [componentFactory]=componentFactory></product-table>
+
+</div>

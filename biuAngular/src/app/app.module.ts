@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,8 +13,21 @@ import { LoginComponent } from './components/login/login.component';
 import { ProductTableComponent } from './components/commons/product-table/product-table.component';
 import { AddCartComponent } from './components/commons/add-cart/add-cart.component';
 import { RemoveCartComponent } from './components/commons/remove-cart/remove-cart.component';
-import { ActionCartComponent } from './components/commons/action-cart/action-cart.component';
+import { ActionCartDirective } from './components/commons/action-cart/action-cart.directive';
+import { Cart } from './model/cart.model';
+import { MatButtonModule } from '@angular/material/button';
 
+
+//here we initialize empty cart in local storage if not exists
+export function initializeCart(){
+  return () => {
+    const item = localStorage.getItem(Cart.NAME);
+    console.log(item);
+    if(!item || item.length == 0){
+      localStorage.setItem(Cart.NAME,JSON.stringify([]));
+    }
+  }
+}
 
 @NgModule({
   declarations: [
@@ -28,14 +41,19 @@ import { ActionCartComponent } from './components/commons/action-cart/action-car
     ProductTableComponent,
     AddCartComponent,
     RemoveCartComponent,
-    ActionCartComponent
+    ActionCartDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatTableModule,
+    MatButtonModule
   ],
-  providers: [],
+  providers: [{
+    provide: APP_INITIALIZER,
+    useFactory: initializeCart,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

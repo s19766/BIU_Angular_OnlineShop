@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Inject, Input } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { Product } from 'src/app/model/product.model';
 
-@Component({
-  selector: 'app-action-cart',
-  templateUrl: './action-cart.component.html',
-  styleUrls: ['./action-cart.component.css']
-})
-export class ActionCartComponent implements OnInit {
 
-  constructor() { }
+@Injectable()
+export abstract class ActionCartComponent implements OnInit {
+  @Input() product!: Product;
+
+  constructor(@Inject('actionName') public actionName: string) { }
 
   ngOnInit(): void {
+    document.getElementsByName("action-button").forEach(x=>x.innerHTML = this.actionName);
   }
 
+  public abstract action(product: Product): void;
 }

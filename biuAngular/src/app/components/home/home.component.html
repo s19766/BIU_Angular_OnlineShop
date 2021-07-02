@@ -1,27 +1,4 @@
-<table mat-table [dataSource]="products" class="table table-striped table-bordered text-center">
-
-  <ng-container matColumnDef="id">
-    <th *matHeaderCellDef class="font-weight-bold"> Id </th>
-    <td mat-cell *matCellDef="let element" (click) = 'showProduct(element.id)'> {{element.id}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="price">
-    <th *matHeaderCellDef class="font-weight-bold"> Price (złoty) </th>
-    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="name">
-    <th *matHeaderCellDef class="font-weight-bold"> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef=" ">
-    <th *matHeaderCellDef class="font-weight-bold"> Add to cart </th>
-    <td mat-cell *matCellDef="let element">
-      <button type="button" class="btn btn-sm btn-primary product-btn">Add to Cart</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<product-table
+[products] = products
+[componentFactory] = componentFactory
+></product-table>

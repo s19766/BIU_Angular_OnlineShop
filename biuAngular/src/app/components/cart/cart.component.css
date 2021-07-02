@@ -1,0 +1,20 @@
+.cart-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cart-actions button {
+  width: 50%;
+  margin: 0.1rem;
+}
+
+.cart-actions button:first-child {
+  margin-left: 0;
+  background-color: red;
+}
+
+.cart-actions button:last-child {
+  margin-right: 0;
+  background-color: green;
+}
