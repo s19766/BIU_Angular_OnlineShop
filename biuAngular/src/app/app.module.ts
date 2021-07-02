@@ -10,6 +10,10 @@ import { MatTableModule } from '@angular/material/table';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProductTableComponent } from './components/commons/product-table/product-table.component';
+import { AddCartComponent } from './components/commons/add-cart/add-cart.component';
+import { RemoveCartComponent } from './components/commons/remove-cart/remove-cart.component';
+import { ActionCartComponent } from './components/commons/action-cart/action-cart.component';
 
 
 @NgModule({
@@ -20,12 +24,16 @@ import { LoginComponent } from './components/login/login.component';
     ProductComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    ProductTableComponent,
+    AddCartComponent,
+    RemoveCartComponent,
+    ActionCartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatTableModule
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

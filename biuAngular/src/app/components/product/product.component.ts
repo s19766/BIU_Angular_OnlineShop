@@ -14,16 +14,14 @@ export class ProductComponent implements OnInit {
   public product: any;
 
   constructor(private route: ActivatedRoute) {
-    route.params.subscribe({
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe({
       next: param => {
         const id = param ['id'];
         this.product = ProductList.PRODUCTS[id]; //z listy produktow jest brany produkt po id
       }
     })
   }
-
-  ngOnInit(): void {
-
-  }
-
 }
