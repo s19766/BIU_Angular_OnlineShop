@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.componentFactory = this.componentFactoryResoler.resolveComponentFactory(AddCartComponent);
+    this.componentFactory = this.componentFactoryResoler.resolveComponentFactory(AddCartComponent); //crete factory for add cart component
   }
 
 }

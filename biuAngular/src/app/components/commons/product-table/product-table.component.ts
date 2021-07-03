@@ -28,9 +28,9 @@ export class ProductTableComponent implements OnInit, AfterViewInit {
   constructor(private router: Router) { }
   ngAfterViewInit(): void {
     this.actionCartButtons.forEach(actionCartButton => {
-      const viewContainerRef = actionCartButton.viewContainerRef;
+      const viewContainerRef = actionCartButton.viewContainerRef; //bierzemy z directiove
       viewContainerRef.clear();
-      const componentRef = viewContainerRef.createComponent<ActionCartComponent>(this.componentFactory);
+      const componentRef = viewContainerRef.createComponent<ActionCartComponent>(this.componentFactory); //create a component based on component type and factory
       componentRef.instance.product = actionCartButton.product;
       componentRef.instance.ngOnInit();
     });
@@ -41,6 +41,7 @@ export class ProductTableComponent implements OnInit, AfterViewInit {
 
   }
 
+  //function that show single product
   showProduct(id: number) {
     this.router.navigateByUrl('product/' + id)
   }

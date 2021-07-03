@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: '**', component: HomeComponent} //autmaticly go to home, whatever you paste in the connection
 ];
 
+//for roots from uper it creates imports
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -16,7 +16,7 @@
   </ng-container>
 
   <ng-container matColumnDef="actionButton">
-    <th *matHeaderCellDef class="font-weight-bold"> Add to cart </th>
+    <th *matHeaderCellDef class="font-weight-bold"> Action </th>
     <td mat-cell *matCellDef="let element">
       <!-- <button type="button" class="btn btn-sm btn-primary product-btn" (click)="addToCart(element)">Add to Cart</button> -->
       <ng-template actionCartButton [product]=element></ng-template>

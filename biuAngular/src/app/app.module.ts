@@ -23,8 +23,9 @@ export function initializeCart(){
   return () => {
     const item = localStorage.getItem(Cart.NAME);
     console.log(item);
+    //check if item exsist
     if(!item || item.length == 0){
-      localStorage.setItem(Cart.NAME,JSON.stringify([]));
+      localStorage.setItem(Cart.NAME,JSON.stringify([])); //list is json
     }
   }
 }
@@ -50,7 +51,7 @@ export function initializeCart(){
     MatButtonModule
   ],
   providers: [{
-    provide: APP_INITIALIZER,
+    provide: APP_INITIALIZER, //info for Angular that we want to use upper function
     useFactory: initializeCart,
     multi: true
   }],

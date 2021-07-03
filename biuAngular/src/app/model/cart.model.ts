@@ -14,14 +14,16 @@ export class Cart{
     const items = this.getAll();
     product.idInCart = this.generateCartId(product);
     items.push(product);
-    console.log(items);
+    // console.log(items);
     this.saveParsedItems(items);
   }
 
+  //instead of deleting items we put empty list there
   public static clearCart(){
     this.saveParsedItems([]);
   }
 
+  //items from json to obcjet
   public static getAll(): Product[]{
     const item = localStorage.getItem(this.NAME);
     if(item){
@@ -30,6 +32,7 @@ export class Cart{
     return [];
   }
 
+  //items from obcjet to json
   private static saveParsedItems(products: Product[]){
     localStorage.setItem(this.NAME,JSON.stringify(products));
   }

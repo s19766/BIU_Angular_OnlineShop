@@ -10,14 +10,17 @@ import { ActionCartComponent } from '../action-cart/action-cart.component';
 })
 export class AddCartComponent extends ActionCartComponent implements OnInit {
 
+  //change actionName from action-cart
   constructor() {
     super("Add to cart");
    }
 
+   //refresh
   ngOnInit(): void {
     super.ngOnInit();
   }
 
+  //override function from action-cart
   public action(product: Product): void {
     Cart.save(product);
   }
